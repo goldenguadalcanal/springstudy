@@ -1,6 +1,7 @@
 package goldenguadalcanal.springstudy.aop.withoutAnnotation;
 
 import goldenguadalcanal.springstudy.Loader;
+import goldenguadalcanal.springstudy.aop.withoutAnnotation.introduction.ISolo;
 
 public class App {
 
@@ -12,12 +13,15 @@ public class App {
 		g.perform();
 		g = (IPerformance)Loader.getContext(conf).getBean("drum");
 		//throwing exception
-		g.perform();
+		//g.perform();
 		
 		g.showInstrument();
 		
 		g.perform("Tommy Lee", "Pearl Drum");
 		
+		//introduction
+		ISolo solo = (ISolo)g;
+		solo.solo(g.showInstrument());
 	}
 
 }

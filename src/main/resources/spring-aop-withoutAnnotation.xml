@@ -24,7 +24,11 @@
 	        	<aop:after-throwing pointcut-ref="performance" method="refund"/>
 
 				<aop:after-returning pointcut-ref="showInstrument" method="show"/>
-				<aop:after pointcut-ref="perform" method="beginPlaying"/>	        	
+				<aop:after pointcut-ref="perform" method="beginPlaying"/>
+				
+				<aop:declare-parents types-matching="goldenguadalcanal.springstudy.aop.withoutAnnotation.IPerformance+" 
+					implement-interface="goldenguadalcanal.springstudy.aop.withoutAnnotation.introduction.ISolo"
+					default-impl="goldenguadalcanal.springstudy.aop.withoutAnnotation.introduction.SoloImpl"/>	        	
 	        </aop:aspect>
         </aop:config>
 </beans>

@@ -1,6 +1,7 @@
 package goldenguadalcanal.springstudy.aop.annotation;
 
 import goldenguadalcanal.springstudy.Loader;
+import goldenguadalcanal.springstudy.aop.annotation.introduction.ISolo;
 
 public class App {
 
@@ -17,6 +18,10 @@ public class App {
 		g.showInstrument();
 		
 		g.perform("Tommy Lee", "Pearl Drum");
+		
+		//introduction
+		ISolo solo = (ISolo)g;
+		solo.solo(g.showInstrument());
 		
 	}
 
