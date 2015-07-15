@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Aspect
-public class Audience {
+public class Audience {   
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
