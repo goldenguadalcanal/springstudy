@@ -6,9 +6,9 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//IPerformance g = (IPerformance)Loader.getInstance().getBean("guitar");
-		//g.perform();
-		IPerformance g = (IPerformance)Loader.getInstance().getBean("drum");
+		IPerformance g = (IPerformance)Loader.getInstance().getBean("guitar");
+		g.perform();
+		g = (IPerformance)Loader.getInstance().getBean("drum");
 		g.perform();
 		
 	}
