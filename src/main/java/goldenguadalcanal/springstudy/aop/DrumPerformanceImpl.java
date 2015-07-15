@@ -12,6 +12,7 @@ public class DrumPerformanceImpl implements IPerformance {
 	public void perform() {
 		// TODO Auto-generated method stub
 		log.info("开始打鼓");
+		throw new RuntimeException("砸了");
 	}
 
 }

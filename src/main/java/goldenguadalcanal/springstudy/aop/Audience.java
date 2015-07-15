@@ -2,6 +2,7 @@ package goldenguadalcanal.springstudy.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -28,14 +29,14 @@ public class Audience {
 	}
 	
 	@Around("performance()")
-	public void watchPerformance(ProceedingJoinPoint jp) {
+	public void watchPerformance(ProceedingJoinPoint jp) throws Throwable {
 		log.info("入场");
-		try {
-			jp.proceed();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		jp.proceed();
 		log.info("起立");
+	}
+	
+	@AfterThrowing("performance()")
+	public void refund() {
+		log.error("演砸了，退票");
 	}
 }
