@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <bean id="guitar" class="goldenguadalcanal.springstudy.aop.withoutAnnotation.GuitarPerformanceImpl" />
+        <bean id="drum" class="goldenguadalcanal.springstudy.aop.withoutAnnotation.DrumPerformanceImpl" />
+        <bean id="audience" class="goldenguadalcanal.springstudy.aop.withoutAnnotation.Audience" />
+        
+        <aop:config>
+	        <aop:aspect ref="audience">
+	        	<aop:pointcut expression="execution(* goldenguadalcanal.springstudy.aop.withoutAnnotation.IPerformance.perform())" id="performance" />
+	        	<aop:pointcut expression="execution(* goldenguadalcanal.springstudy.aop.withoutAnnotation.IPerformance.showInstrument())" id="showInstrument" />
+	        	<aop:pointcut expression="execution(* goldenguadalcanal.springstudy.aop.withoutAnnotation.IPerformance.perform(String,String)) and args(performer,instrument)" id="perform" />
+	        	
+	        	<aop:before pointcut-ref="performance" method="buyingBeer"/>
+	        	<aop:after pointcut-ref="performance" method="applause"/>
+	        	<aop:around pointcut-ref="performance" method="watchPerformance"/>
+	        	<aop:after-throwing pointcut-ref="performance" method="refund"/>
+
+				<aop:after-returning pointcut-ref="showInstrument" method="show"/>
+				<aop:after pointcut-ref="perform" method="beginPlaying"/>	        	
+	        </aop:aspect>
+        </aop:config>
+</beans>

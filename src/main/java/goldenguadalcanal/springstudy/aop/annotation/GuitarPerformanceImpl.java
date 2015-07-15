@@ -1,4 +1,4 @@
-package goldenguadalcanal.springstudy.aop;
+package goldenguadalcanal.springstudy.aop.annotation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,16 @@ public class GuitarPerformanceImpl implements IPerformance {
 	
 	public void perform() {
 		// TODO Auto-generated method stub
-		log.info("开始演奏吉他");
+		log.info("begin to play the guitar");
+	}
+
+	public void perform(String performer, String instrument) {
+		// TODO Auto-generated method stub
+	}
+
+	public String showInstrument() {
+		// TODO Auto-generated method stub
+		return "Gibson Les Paul Guitar";
 	}
 
 }

@@ -1,0 +1,2 @@
+1. 在使用@AfterThrowing时，注意相关的joinpoint方法内不要对异常进行捕获，否则@AfterThrowing不会执行
+2. 在定义pointcut时，注意方法名不能相同(此处对注解方式说，配置文件中应是id不重名)，否则spring定位不到相应的bean而报错
