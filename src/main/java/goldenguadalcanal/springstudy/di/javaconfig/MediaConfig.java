@@ -3,9 +3,6 @@ package goldenguadalcanal.springstudy.di.javaconfig;
 import java.util.Date;
 import java.util.Calendar;
 
-import goldenguadalcanal.springstudy.di.annotation.CDMedia;
-import goldenguadalcanal.springstudy.di.annotation.CDMediaPlayer;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -32,5 +29,10 @@ public class MediaConfig {
 	@Bean
 	public Date getDate() {
 		return Calendar.getInstance().getTime();
+	}
+	
+	@Bean
+	public java.sql.Date getSqlDate() {
+		return new java.sql.Date(System.currentTimeMillis());
 	}
 }

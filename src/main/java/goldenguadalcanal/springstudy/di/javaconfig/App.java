@@ -13,6 +13,8 @@ public class App {
 		player.play();
 		Date date = (Date)ctx.getBean("getDate");
 		System.out.println(date);
+		java.sql.Date sdate = (java.sql.Date)ctx.getBean("getSqlDate");
+		System.out.println(sdate);
 		ctx.close();
 	}
 
